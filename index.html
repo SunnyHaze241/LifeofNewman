@@ -1,3 +1,4 @@
+```html name=index.html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,33 +7,88 @@
   <title>Welcome To Newman</title>
   <style>
     html, body {
+      font-family: Arial, sans-serif;
       height: 100%;
       margin: 0;
       padding: 0;
       width: 100%;
+      line-height: 1.6;
+      background: #fafafa;
     }
-    body {
-      min-height: 100vh;
-      min-width: 100vw;
-      height: 100vh;
-      width: 100vw;
-      overflow: hidden;
+    nav {
+      background: #222;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem 0;
     }
-    .full-screen-img {
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover;
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.2rem;
+      padding: 0.5rem 1.2rem;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+    nav a.active, nav a:hover {
+      background: #444;
+    }
+    main {
+      display: flex;
+      height: calc(100vh - 62px); /* Adjust for nav height */
+      justify-content: center;
+      align-items: center;
+    }
+    .page {
+      display: none;
+      font-size: 2.5rem;
+      color: #222;
+      text-align: center;
+      width: 100%;
+      height: 100%;
+    }
+    .page.active {
       display: block;
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 0;
     }
   </style>
 </head>
 <body>
-  <!-- Replace the src URL with your own image path -->
-  <img src="IMG_6515.jpg" alt="Full screen example" class="full-screen-img">
+  <nav>
+    <a href="#" id="home-link" class="active">Home</a>
+    <a href="#" id="team-link">Meet The Team</a>
+    <a href="#" id="newman-link">Meet Newman</a>
+  </nav>
+  <main>
+    <div id="home" class="page active">Home</div>
+    <div id="team" class="page">Meet The Team</div>
+    <div id="newman" class="page">Meet Newman</div>
+  </main>
+  <script>
+    const pages = {
+      'home-link': 'home',
+      'team-link': 'team',
+      'newman-link': 'newman'
+    };
+    Object.keys(pages).forEach(linkId => {
+      document.getElementById(linkId).addEventListener('click', function(e) {
+        e.preventDefault();
+        // Toggle nav active
+        document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+        this.classList.add('active');
+        // Toggle pages
+        document.querySelectorAll('.page').forEach(div => div.classList.remove('active'));
+        document.getElementById(pages[linkId]).classList.add('active');
+      });
+    });
+  </script>
 </body>
 </html>
-  
+```
+
+**How this works:**
+- Adds a `<nav>` bar with three links: Home, Meet The Team, Meet Newman.
+- Each "page" is a `<div>` inside `<main>`, and only one is visible at a time.
+- JavaScript toggles visibility and nav highlighting.
+- No page reloads—it's a simple single-page experience.  
+You can replace each `.page`'s content with whatever you wish later!
