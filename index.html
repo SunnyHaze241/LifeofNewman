@@ -54,10 +54,10 @@
       position: relative;
     }
     .page {
-      display: none; /* No page indicator at all */
+      display: none;
     }
     .page.active {
-      display: none; /* No page indicator at all */
+      display: block;
     }
   </style>
 </head>
@@ -84,7 +84,7 @@
         // Toggle nav active
         document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
         this.classList.add('active');
-        // Hide all pages
+        // Toggle pages
         document.querySelectorAll('.page').forEach(div => div.classList.remove('active'));
         document.getElementById(pages[linkId]).classList.add('active');
       });
