@@ -6,33 +6,25 @@
   <title>Welcome To Newman</title>
   <style>
     html, body {
-      font-family: Arial, sans-serif;
       height: 100%;
       margin: 0;
       padding: 0;
       width: 100%;
+      font-family: Arial, sans-serif;
       line-height: 1.6;
-      background: #fafafa;
     }
     body {
       min-height: 100vh;
       min-width: 100vw;
       height: 100vh;
       width: 100vw;
-      position: relative;
       overflow: hidden;
-    }
-    .background-img {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover;
-      object-position: center center;
-      z-index: -1;
-      pointer-events: none; /* allow clicks through background */
-      user-select: none;
+      /* Set your image path here */
+      background-image: url('IMG_6515.jpg');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
     }
     nav {
       background: rgba(34,34,34,0.85);
@@ -81,8 +73,7 @@
   </style>
 </head>
 <body>
-  <!-- Replace the src below with your background image path -->
-  <img src="IMG_6515.jpg" alt="Background" class="background-img" draggable="false">
+  <!-- No need for an <img>; background is handled with CSS -->
   <nav>
     <a href="#" id="home-link" class="active">Home</a>
     <a href="#" id="team-link">Meet The Team</a>
