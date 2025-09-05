@@ -19,8 +19,7 @@
       height: 100vh;
       width: 100vw;
       overflow: hidden;
-      /* Set your image path here */
-      background-image: url('IMG_6515.jpg');
+      background-image: url('IMG_6515.jpg'); /* <-- Make sure this path is correct */
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
@@ -62,9 +61,10 @@
       text-align: center;
       width: 100%;
       height: 100%;
-      background: rgba(255,255,255,0.5);
+      /* background: none;  <-- removed overlay! */
+      background: none;
       border-radius: 12px;
-      box-shadow: 0 4px 32px rgba(0,0,0,0.07);
+      box-shadow: none;
       padding: 2rem;
     }
     .page.active {
@@ -73,7 +73,6 @@
   </style>
 </head>
 <body>
-  <!-- No need for an <img>; background is handled with CSS -->
   <nav>
     <a href="#" id="home-link" class="active">Home</a>
     <a href="#" id="team-link">Meet The Team</a>
